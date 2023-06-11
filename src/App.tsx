@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { Suspense } from 'react';
+import { AuthContextProvider } from '@/contexts/AuthContext';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { MutateContextProvider } from '@/contexts/MutateContext';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import Layout from '@/components/Layout/Layout';
+import '@/styles/App.scss';
+import UtilsContextProvider from '@/contexts/UtilsContext';
+import { PopupPortal } from '@/components/Popup/PopupPortal';
+import { ModalPopupContextProvider } from '@/contexts/ModalPopupContext';
+import Popup from '@/components/Popup/Popup';
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      suspense: true
+    }
+  }
+});
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<div>로딩중이에요!!!!</div>}>
+      <QueryClientProvider client={queryClient}>
+        <MutateContextProvider>
+          {/* 권한관련 context */}
+          <AuthContextProvider>
+            {/* 현재 클릭한 target 세팅하는 context */}
+            <UtilsContextProvider>
+              <ModalPopupContextProvider>
+                <Layout></Layout>
+                <PopupPortal>
+                  <Popup></Popup>
+                </PopupPortal>
+              </ModalPopupContextProvider>
+            </UtilsContextProvider>
+          </AuthContextProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </MutateContextProvider>
+      </QueryClientProvider>
+    </Suspense>
   );
 }
 
