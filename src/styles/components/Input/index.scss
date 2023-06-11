@@ -1,0 +1,31 @@
+//@import "@/styles/_utils.scss"; //*변수파일 import*/
+@include mobile {
+  input {
+    width: 100%;
+    background-color: $blue;
+  }
+}
+@include tablet {
+  input {
+    width: 100%;
+    background-color: $green;
+  }
+}
+
+@include desktop {
+  input {
+    width: 100%;
+    background-color: ivory;
+  }
+}
+input {
+  box-sizing: border-box;
+}
+input:focus {
+  &.fail {
+    outline: 2px solid red;
+  }
+  &.success {
+    outline: 2px solid blue;
+  }
+}

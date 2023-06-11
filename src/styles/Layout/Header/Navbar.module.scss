@@ -1,0 +1,12 @@
+.navbar_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .menu_wrap {
+    display: flex;
+    align-items: center;
+    .link_item {
+      margin-left: 5%;
+    }
+  }
+}

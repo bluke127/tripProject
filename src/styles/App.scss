@@ -1,11 +1,19 @@
-@import "@/styles/utils.scss"; /*변수파일 import*/
-@import "@/styles/Init.scss"; /* 초기화 */
+// @import "@/styles/utils.scss"; /*변수파일 import*/
+// @import "@/styles/Init.scss"; /* 초기화 */
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 #app_wrap {
-  width: 100vw;
+  width: 80vw;
   height: 100vh;
 }
 
 #popup_root,
 #modal_root {
   position: fixed;
+  top: 0;
+  left: 0;
 }
