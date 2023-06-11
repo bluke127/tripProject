@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "@/contexts/AuthContext";
 import StatusInput from "@/components/Input/StatusInput";
 import styles from "@/styles/Layout/Header/Navbar.module.scss";
+import Button from "@/components/Button";
+import useDebounce from "@/hooks/useDebounce";
 export default function Navbar() {
   const { state: userState, action } = useAuthContext();
   const [user, setuser] = useState({ name: "", password: "" });
@@ -24,6 +26,20 @@ export default function Navbar() {
       };
     });
   };
+  const alertFunc = () => {
+    setNum(n => {
+      n = n + 1;
+      return n;
+    });
+  };
+  const a = v => {
+    console.log("Test", v);
+  };
+  useDebounce(a, 1000, [num]);
+
+  useEffect(() => {
+    console.log(num);
+  }, [num]);
   return (
     <>
       {JSON.stringify(userState)}
@@ -67,7 +83,11 @@ export default function Navbar() {
               })
             }
           />
-          <button onClick={onUserStateChange}>로그인</button>;
+          <Button onClick={onUserStateChange}>로그인</Button>
+          <Button onClick={alertFunc} useDebounce={false}>
+            체스츠
+          </Button>
+          ;
         </div>
       </div>
     </>
