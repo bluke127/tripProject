@@ -32,6 +32,7 @@ export default function Navbar() {
     });
   };
   const alertFunc = () => {
+    console.log("Test");
     setNum(n => {
       n = n + 1;
       return n;
@@ -40,11 +41,14 @@ export default function Navbar() {
   const a = v => {
     console.log("Test", v);
   };
-  useDebounce(a, 1000, [num]);
+  // useDebounce(a, 1000, [num]);
 
   useEffect(() => {
     console.log(num);
   }, [num]);
+  const what = () => {
+    console.log("Sss");
+  };
   return (
     <>
       {JSON.stringify(userInfo)}
@@ -89,8 +93,9 @@ export default function Navbar() {
               })
             }
           />
+          <button onClick={() => what}></button>
           <Button onClick={onLogin}>로그인</Button>
-          <Button onClick={alertFunc} useDebounce={false}>
+          <Button onClick={alertFunc} isDebouncedButton={false}>
             체스츠
           </Button>
           ;

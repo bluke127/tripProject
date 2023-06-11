@@ -14,6 +14,8 @@ export default function Layout() {
   };
   return (
     <>
+      {/* get은 suspense로 확인가능 */}
+      {/* cud api를 하는 중이라면 loading 페이지가 나오도록 */}
       {mutateState.state.isLoading ? (
         <div
           style={{

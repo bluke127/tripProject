@@ -6,9 +6,9 @@ interface AuthType {
   setIsLogin: Dispatch<any>;
 }
 const AuthContext = createContext<AuthType>({
-  userInfo: { name: "", password: "" },
+  userInfo: { name: "", password: "" }, //화원정보
   setUserInfo: () => {},
-  isLogin: false,
+  isLogin: false, //로딩 여부
   setIsLogin: () => {}
 });
 

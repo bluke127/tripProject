@@ -4,7 +4,7 @@ import React, {
   useCallback,
   Children,
   useMemo,
-  useState,
+  useState
 } from "react";
 import ReactDOM from "react-dom";
 import styles from "@/styles/components/ModalPopup/Modal.module.scss";
@@ -15,14 +15,14 @@ export default function Modal(props) {
   const { modalState, modalAction } = UseModalPopupContext();
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    setVisible((e) => modalState[id]["visible"]);
+    setVisible(e => modalState[id]["visible"]);
   }, [modalState]);
   useEffect(() => {
-    setVisible((e) => modalState[id]["visible"]);
+    setVisible(e => modalState[id]["visible"]);
   }, [visible]);
   const onClose = useCallback(
     () =>
-      modalAction((e) => {
+      modalAction(e => {
         e[id].visible = false;
         return { ...e };
       }),

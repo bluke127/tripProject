@@ -7,7 +7,7 @@ export default function StatusInput(props) {
   const {
     state: { target },
     action: Aaction
-  } = UseUtilsContext();
+  } = UseUtilsContext(); //현재 타겟이 이 element면 reset button이 보이도록
   const InputRef = useRef();
   const {
     value = "",
