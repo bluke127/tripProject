@@ -45,6 +45,10 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
         path: "needLogin"
+      },
+      {
+        element: <NotFounds />,
+        path: "*"
       }
     ]
   }

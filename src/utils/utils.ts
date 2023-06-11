@@ -20,3 +20,14 @@ export const handleDateFormat = (
   new Intl.DateTimeFormat("ko", {
     dateStyle
   }).format(date ?? new Date());
+export const debounce = (fn, delay) => {
+  let timeout;
+  return (...args) => {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => {
+      fn();
+    }, delay);
+  };
+};
