@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import Input from "./Input";
+import Input from "@/components/Input";
 import "@/styles/components/Input/StatusInput.scss";
 import { UseUtilsContext } from "@/contexts/UtilsContext";
 export default function StatusInput(props) {
   const {
     state: { target },
-    action: Aaction,
+    action: Aaction
   } = UseUtilsContext();
   const InputRef = useRef();
   const {
@@ -17,7 +17,7 @@ export default function StatusInput(props) {
     placeholder,
     validation,
     onClear,
-    label,
+    label
   } = props;
 
   const passValidation = useMemo(() => {

@@ -2,9 +2,9 @@ import React, {
   useEffect,
   forwardRef,
   ChangeEventHandler,
-  RefObject,
+  RefObject
 } from "react";
-import "@/styles/components/Input/Input.scss";
+import "@/styles/components/Input/index.scss";
 type propsType = {
   value: string | boolean | number;
   id?: string;
@@ -15,6 +15,7 @@ type propsType = {
   label?: string;
   className?: string;
 };
+
 const Input = forwardRef(
   (props: propsType, ref: RefObject<HTMLInputElement>) => {
     const {
@@ -25,7 +26,7 @@ const Input = forwardRef(
       type = "text",
       placeholder,
       label,
-      className,
+      className
     } = props;
     return (
       <span className="input_wrap">
@@ -45,4 +46,5 @@ const Input = forwardRef(
     );
   }
 );
+Input.displayName = "Input";
 export default Input;

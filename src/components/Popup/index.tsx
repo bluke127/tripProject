@@ -6,22 +6,9 @@ import { AiOutlineClose } from "react-icons/ai";
 
 export default function Popup() {
   const { popupState, popupAction } = UseModalPopupContext();
-  useEffect(() => {}, [popupState]);
-
-  useEffect(() => {
-    if (!popupState.isOpen)
-      popupAction((e) => {
-        return {
-          type: "알림",
-          content: "",
-          btnList: [],
-          isOpen: popupState.isOpen,
-        };
-      });
-  }, [popupState.isOpen]);
   const onClose = useCallback(
     () =>
-      popupAction((e) => {
+      popupAction(e => {
         return { ...e, isOpen: false };
       }),
     []
