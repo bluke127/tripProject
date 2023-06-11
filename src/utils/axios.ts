@@ -32,7 +32,7 @@ instance.interceptors.response.use(
 );
 const api = {
   get: async ({ url, query }: any) => {
-    console.log(process.env, '//sss');
+    console.log(process.env, 'process.env');
     const method = 'get';
     const params = query;
     const response = await instance({

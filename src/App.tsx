@@ -1,14 +1,14 @@
-import { Suspense } from 'react';
-import { AuthContextProvider } from '@/contexts/AuthContext';
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import { MutateContextProvider } from '@/contexts/MutateContext';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import Layout from '@/components/Layout/Layout';
-import '@/styles/App.scss';
-import UtilsContextProvider from '@/contexts/UtilsContext';
-import { PopupPortal } from '@/components/Popup/PopupPortal';
-import { ModalPopupContextProvider } from '@/contexts/ModalPopupContext';
-import Popup from '@/components/Popup/Popup';
+import { Suspense, useEffect } from "react";
+import { AuthContextProvider } from "@/contexts/AuthContext";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { MutateContextProvider } from "@/contexts/MutateContext";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Layout from "@/components/Layout";
+import "@/styles/App.scss";
+import UtilsContextProvider from "@/contexts/UtilsContext";
+import { PopupPortal } from "@/components/Popup/PopupPortal";
+import { ModalPopupContextProvider } from "@/contexts/ModalPopupContext";
+import Popup from "@/components/Popup";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
