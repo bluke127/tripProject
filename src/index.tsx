@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import NotFounds from "@/pages/NotFounds";
 import Home from "@/pages/Home";
-import TempPage from "@/pages/TempPage";
+import TableTestPage from "@/pages/TableTest";
 import NeedLoginPage from "@/pages/NeedLoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 // import ProtectedRoute from '@/components/ProtectedRoute';
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        element: <TempPage />,
-        path: "temp"
+        element: <TableTestPage />,
+        path: "table"
       },
       {
         element: (
