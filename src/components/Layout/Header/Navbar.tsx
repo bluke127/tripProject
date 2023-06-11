@@ -30,10 +30,13 @@ export default function Navbar() {
       <div className={styles.navbar_wrap}>
         <div className={styles.menu_wrap}>
           <div className={styles.link_item}>
-            <Link to="/Home">Home</Link>
+            <Link to="/home">Home</Link>
           </div>
           <div className={styles.link_item}>
-            <Link to="/Temp">Temp</Link>
+            <Link to="/temp">Temp</Link>
+          </div>
+          <div className={styles.link_item}>
+            <Link to="/table">table</Link>
           </div>
           <div className={styles.link_item}>
             <Link to="/needLogin">needLogin</Link>
