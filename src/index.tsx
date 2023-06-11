@@ -11,6 +11,7 @@ import {
 import NotFounds from "@/pages/NotFounds";
 import Home from "@/pages/Home";
 import TempPage from "@/pages/TempPage";
+import TableTest from "@/pages/TableTest";
 import NeedLoginPage from "@/pages/NeedLoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 // import ProtectedRoute from '@/components/ProtectedRoute';
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         element: <TempPage />,
         path: "temp"
+      },
+      {
+        element: <TableTest />,
+        path: "table"
       },
       {
         element: (
