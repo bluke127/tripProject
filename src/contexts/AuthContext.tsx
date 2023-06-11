@@ -1,18 +1,30 @@
-import { Dispatch, createContext, useContext, useState } from 'react';
+import { Dispatch, createContext, useContext, useState } from "react";
 interface AuthType {
-  state: { user: { name: string; password: string } };
-  action: { setUser: Dispatch<any> };
+  userInfo: { name: string; password: string };
+  setUserInfo: Dispatch<any>;
+  isLogin: boolean;
+  setIsLogin: Dispatch<any>;
 }
 const AuthContext = createContext<AuthType>({
-  state: { user: { name: '', password: '' } },
-  action: { setUser: () => {} }
+  userInfo: { name: "", password: "" },
+  setUserInfo: () => {},
+  isLogin: false,
+  setIsLogin: () => {}
 });
 
 export function AuthContextProvider({ children }: any) {
-  const [user, setUser] = useState<any>({ name: '', password: '' });
+  const [user, setUser] = useState<any>({ name: "", password: "" });
+  const [login, setLogin] = useState<boolean>(false);
   return (
     // @ts-ignore
-    <AuthContext.Provider value={{ state: { user }, action: { setUser } }}>
+    <AuthContext.Provider
+      value={{
+        userInfo: user,
+        setUserInfo: setUser,
+        isLogin: login,
+        setIsLogin: setLogin
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

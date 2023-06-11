@@ -6,21 +6,26 @@ import styles from "@/styles/Layout/Header/Navbar.module.scss";
 import Button from "@/components/Button";
 import useDebounce from "@/hooks/useDebounce";
 export default function Navbar() {
-  const { state: userState, action } = useAuthContext();
-  const [user, setuser] = useState({ name: "", password: "" });
+  const [num, setNum] = useState(0); //숫자 테스트 ( debounce )
+  const { userInfo, setUserInfo, isLogin, setIsLogin } = useAuthContext(); // 회원정보
+  const [user, setUser] = useState({ name: "", password: "" });
+  const [login, setLogin] = useState(false);
   const onNameChange = e => {
-    setuser(u => {
+    setUser(u => {
       return { ...u, name: (e.target as HTMLInputElement).value };
     });
   };
   const onPasswordChange = e => {
-    setuser(u => {
+    setUser(u => {
       return { ...u, password: (e.target as HTMLInputElement).value };
     });
   };
-  const onUserStateChange = () => {
-    action.setUser(item => {
+  const onLogin = () => {
+    console.log(userInfo);
+    setIsLogin(e => true);
+    setUserInfo(item => {
       return {
+        ...item,
         name: user.name,
         password: user.password
       };
@@ -42,7 +47,8 @@ export default function Navbar() {
   }, [num]);
   return (
     <>
-      {JSON.stringify(userState)}
+      {JSON.stringify(userInfo)}
+      {JSON.stringify(user)}
       <div className={styles.navbar_wrap}>
         <div className={styles.menu_wrap}>
           <div className={styles.link_item}>
@@ -66,7 +72,7 @@ export default function Navbar() {
             onChange={onNameChange}
             style={{ color: "black" }}
             onClear={e =>
-              setuser(u => {
+              setUser(u => {
                 return { ...u, name: "" };
               })
             }
@@ -78,12 +84,12 @@ export default function Navbar() {
             style={{ color: "black" }}
             validation={/^[0-9]+$/}
             onClear={e =>
-              setuser(u => {
+              setUser(u => {
                 return { ...u, password: "" };
               })
             }
           />
-          <Button onClick={onUserStateChange}>로그인</Button>
+          <Button onClick={onLogin}>로그인</Button>
           <Button onClick={alertFunc} useDebounce={false}>
             체스츠
           </Button>

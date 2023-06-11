@@ -14,10 +14,10 @@ export default function ProtectedRoute({
   requireAdmin?;
 }) {
   const { popupState, popupAction } = UseModalPopupContext();
-  const { state } = useAuthContext();
+  const { isLogin } = useAuthContext();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!state || !state.user.name) {
+    if (!isLogin) {
       popupAction(e => {
         return {
           ...e,
