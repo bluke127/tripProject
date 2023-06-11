@@ -1,21 +1,42 @@
-import { useAuthContext } from "@/contexts/AuthContext";
-import React from "react";
-import { Navigate } from "react-router-dom";
+import { useAuthContext, AuthContextProvider } from "@/contexts/AuthContext";
+import { UseModalPopupContext } from "@/contexts/ModalPopupContext";
+import styles from "@/styles/pages/NeedLoginPage.module.scss";
+import ModalPortal from "@/components/Modal/ModalPortal";
+import Modal from "@/components/Modal";
+import useModal from "@/hooks/useModal";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 export default function ProtectedRoute({
   children,
-  requireAdmin,
+  requireAdmin
 }: {
   children;
   requireAdmin?;
 }) {
-  //로그인한 사용자가 있는지 확인
-  //그 사용자가 어드민 권한이 있는지
-  //requireAdmin이 true 인 경우에는 로그인, 어드민 권한도 있어야
-  //조건 맞지 않으면, 상위경로로
-  //조건에 맞는 경우에만 전달된 children보여줌
+  const { popupState, popupAction } = UseModalPopupContext();
   const { state } = useAuthContext();
-  if (!state || !state.user.name) {
-    return <Navigate to="/" replace></Navigate>;
-  }
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!state || !state.user.name) {
+      popupAction(e => {
+        return {
+          ...e,
+          isOpen: true,
+          content: "로그인 부터 해주시기 바랍니다",
+          btnList: [
+            {
+              word: "확인",
+              func: () => {
+                popupAction(e => {
+                  return { ...e, isOpen: false };
+                });
+                navigate("/");
+              }
+            }
+          ]
+        };
+      });
+    }
+  }, []);
   return children;
 }
