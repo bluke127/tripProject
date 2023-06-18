@@ -4,11 +4,7 @@ import Input from "@/components/Input";
 import "@/styles/components/Input/StatusInput.scss";
 import { UseUtilsContext } from "@/contexts/UtilsContext";
 export default function StatusInput(props) {
-  const {
-    state: { target },
-    action: Aaction
-  } = UseUtilsContext(); //현재 타겟이 이 element면 reset button이 보이도록
-  const InputRef = useRef();
+  //props
   const {
     value = "",
     onChange,
@@ -19,7 +15,14 @@ export default function StatusInput(props) {
     onClear,
     label
   } = props;
-
+  //useRef
+  const InputRef = useRef();
+  //useContext
+  const {
+    state: { target },
+    action: Aaction
+  } = UseUtilsContext(); //현재 타겟이 이 element면 reset button이 보이도록
+  //useMemo
   const passValidation = useMemo(() => {
     return validation?.test(value);
   }, [value]);
