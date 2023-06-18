@@ -32,10 +32,13 @@
   }
   .title_wrap {
     width: 100%;
+    font-size: 47px;
+    color: chocolate;
     @include center;
     .point_letter {
       display: inline-block;
-      transform: rotate(-30deg);
+      transform: rotate(-30deg) translateX(2vh);
+      padding-right: 2vw;
     }
   }
   .login_wrap {
