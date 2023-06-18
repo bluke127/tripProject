@@ -1,9 +1,6 @@
-import React, {
-  useEffect,
-  forwardRef,
-  ChangeEventHandler,
-  RefObject
-} from "react";
+//react
+import { forwardRef, ChangeEventHandler, RefObject } from "react";
+//style
 import "@/styles/components/Input/index.scss";
 type propsType = {
   value: string | boolean | number;
@@ -18,6 +15,7 @@ type propsType = {
 
 const Input = forwardRef(
   (props: propsType, ref: RefObject<HTMLInputElement>) => {
+    //props
     const {
       value = "",
       id = "",
