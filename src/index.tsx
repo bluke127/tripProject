@@ -14,6 +14,7 @@ import TempPage from "@/pages/TempPage";
 import TableTest from "@/pages/TableTest";
 import NeedLoginPage from "@/pages/NeedLoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import TableComponentTest from "./pages/TableComponentTest";
 // import ProtectedRoute from '@/components/ProtectedRoute';
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         element: <TableTest />,
         path: "table"
+      },
+      {
+        element: <TableComponentTest />,
+        path: "TableComponentTest"
       },
       {
         element: (
