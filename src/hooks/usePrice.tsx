@@ -1,22 +1,20 @@
-import React, { createContext } from "react";
+import { createContext, useState } from "react";
 
-// AppContext 객체를 생성한다.
-export default function usePrice({
-  price,
-  rate
-}: {
-  price: string | number;
-  rate: string | number;
-}) {
-  const AppContext = createContext(null);
+const priceContext = createContext({
+  price: 0,
+  setPriceHandler: (price: number) => {}
+});
 
-  const App = () => {
-    const initialValue = {
-      price: 0,
-      rate: 0
-   };
-   
+const priceContextProvider = ({ children }, Price: number, Rate: number) => {
+  const [price, setPrice] = useState(0);
 
-    return;
-  };
-}
+  const setPriceHandler = (price: number) => setPrice(price=Price*Rate/100);
+
+  return (
+    <priceContext.Provider value={{ price, setPriceHandler }}>
+      {children}
+    </priceContext.Provider>
+  );
+};
+
+export default priceContextProvider;
