@@ -17,6 +17,14 @@ export default function Navbar() {
         <div className={styles.link_item}>
           <NavLink
             className={isActive => (isActive ? "active" : "")}
+            to="/TableComponentTest"
+          >
+            TableComponentTest
+          </NavLink>
+        </div>
+        <div className={styles.link_item}>
+          <NavLink
+            className={isActive => (isActive ? "active" : "")}
             to="/temp"
           >
             Temp
