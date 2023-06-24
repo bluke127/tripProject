@@ -3,7 +3,7 @@
   height: 20vh;
   display: flex;
   flex-direction: column;
-  background-color: $sub_color_ivory;
+  background-color: $main_ivory;
   box-sizing: border-box;
   border-bottom: 5px solid #000000;
   justify-content: space-between;
@@ -34,6 +34,7 @@
     width: 100%;
     font-size: 47px;
     color: chocolate;
+    font-family: "NotoSans-Black";
     @include center;
     .point_letter {
       display: inline-block;

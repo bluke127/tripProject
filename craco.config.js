@@ -1,5 +1,6 @@
 const CracoAlias = require("craco-alias");
 
+import path from "path";
 module.exports = {
   plugins: [
     {
@@ -18,8 +19,17 @@ module.exports = {
             @import "@/styles/_variables.scss";
             @import "@/styles/_utils.scss";
             @import "@/styles/Init.scss";
-        `
+
+            `
       }
+    }
+  },
+
+  resolve: {
+    alias: {
+      "@/images/": `${path.resolve(__dirname, "src/app/assets/images")}/`,
+      "@/icons/": `${path.resolve(__dirname, "src/app/assets/icons")}/`,
+      "@": `${path.resolve(__dirname, "src")}`
     }
   }
 };

@@ -3,6 +3,7 @@
   height: 10vh;
   display: flex;
   justify-content: space-between;
+  font-family: "NotoSans-Medium";
   @include mobile {
     flex-direction: column;
   }

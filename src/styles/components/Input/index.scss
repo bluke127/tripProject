@@ -2,20 +2,20 @@
 @include mobile {
   input {
     width: 100%;
-    background-color: $blue;
+    background-color: $main_blue;
   }
 }
 @include tablet {
   input {
     width: 100%;
-    background-color: $green;
+    // background-color: $green;
   }
 }
 
 @include desktop {
   input {
     width: 100%;
-    background-color: ivory;
+    background-color: $main_ivory;
   }
 }
 input {
