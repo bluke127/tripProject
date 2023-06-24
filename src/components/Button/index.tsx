@@ -1,5 +1,17 @@
-import React, { useCallback, useEffect, useRef } from "react";
-function Button(props) {
+import React, {
+  CSSProperties,
+  MouseEventHandler,
+  useCallback,
+  useEffect,
+  useRef
+} from "react";
+export type PropsType = {
+  onClick: MouseEventHandler;
+  style?: CSSProperties;
+  children: string | number;
+  isDebouncedButton?: boolean;
+};
+function Button(props: PropsType) {
   //props
   // onClick, style, children : 버튼 내용, isDebouncedButton : 디바운스 할 버튼인지
   const { onClick, style, children, isDebouncedButton = true } = props;

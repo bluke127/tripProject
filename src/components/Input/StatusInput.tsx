@@ -1,9 +1,15 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { MouseEventHandler, useEffect, useMemo, useRef } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import Input from "@/components/Input";
 import "@/styles/components/Input/StatusInput.scss";
 import { UseUtilsContext } from "@/contexts/UtilsContext";
-export default function StatusInput(props) {
+import { PropsType } from "../Input";
+export type StatusPropsType = PropsType & {
+  validation?: RegExp;
+  onClear?: MouseEventHandler;
+  label?: string | number;
+};
+export default function StatusInput(props: StatusPropsType) {
   //props
   const {
     value = "",
@@ -24,7 +30,7 @@ export default function StatusInput(props) {
   } = UseUtilsContext(); //현재 타겟이 이 element면 reset button이 보이도록
   //useMemo
   const passValidation = useMemo(() => {
-    return validation?.test(value);
+    return validation?.test(value as string);
   }, [value]);
 
   return (
