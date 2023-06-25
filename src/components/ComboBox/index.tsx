@@ -12,7 +12,7 @@ type propsType = {
   onSelect?: (value: string) => void;
 };
 
-const ComboBox = ({ options, selectedIndex = 0, onSelect }: propsType) => {
+const ComboBox = ( props : propsType) => {
   const [value, setValue] = useState<string>();
 
   const handleChange = e => {
@@ -26,9 +26,9 @@ const ComboBox = ({ options, selectedIndex = 0, onSelect }: propsType) => {
       handleChange(event.target.value)
     }}
       value={value}
-      defaultValue={options[selectedIndex]}
+      defaultValue={props.options[props.selectedIndex]}
     >
-      {options.map((option, index) => (
+      {props.options.map((option, index) => (
         <option key={index}>{option}</option>
       ))}
     </select>
