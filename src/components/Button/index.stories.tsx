@@ -11,9 +11,18 @@ const Template = args => <Button {...args} />;
 export const Basic = Template.bind({});
 Basic.args = {
   onClick: () => {
-    alert("버튼 클릭");
+    alert("마지막 이벤트만 실행");
   },
   style: { backgroundColor: "red" },
   children: "버튼1",
   isDebouncedButton: true
+};
+export const NotDebounce = Template.bind({});
+NotDebounce.args = {
+  onClick: () => {
+    alert("계속 실행");
+  },
+  style: { backgroundColor: "blue" },
+  children: "버튼2",
+  isDebouncedButton: false
 };
