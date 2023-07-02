@@ -23,13 +23,14 @@ export default function FixedComponent({
 
   useEffect(() => {
     setIsOpen(
-      ShowElementRef?.current?.children[0] === target ||
-        (ref?.current as HTMLElement)?.contains(target)
+      ShowElementRef?.current?.children[0] === target
+      //  ||
+      // (ref?.current as HTMLElement)?.contains(target)
     );
   }, [ShowElementRef, target]);
   //useState
   return (
-    <div ref={ref}>
+    <div>
       {isOpen ? (
         <div>
           <div onClick={() => setIsOpen(false)}>{<TempElement />}</div>

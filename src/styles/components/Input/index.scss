@@ -18,14 +18,9 @@
     background-color: $main_ivory;
   }
 }
+.input_wrap {
+  display: flex;
+}
 input {
   box-sizing: border-box;
-}
-input:focus {
-  &.fail {
-    outline: 2px solid red;
-  }
-  &.success {
-    outline: 2px solid blue;
-  }
 }

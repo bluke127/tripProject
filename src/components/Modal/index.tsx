@@ -1,12 +1,5 @@
 import { UseModalPopupContext } from "@/contexts/ModalPopupContext";
-import React, {
-  useEffect,
-  useCallback,
-  Children,
-  useMemo,
-  useState
-} from "react";
-import ReactDOM from "react-dom";
+import React, { useEffect, useCallback, useState } from "react";
 import styles from "@/styles/components/ModalPopup/Modal.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
 

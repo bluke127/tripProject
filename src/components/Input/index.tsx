@@ -2,7 +2,7 @@
 import { forwardRef, ChangeEventHandler, RefObject } from "react";
 //style
 import "@/styles/components/Input/index.scss";
-type propsType = {
+export type propsType = {
   value: string | boolean | number;
   id?: string;
   onChange: ChangeEventHandler;
@@ -11,6 +11,7 @@ type propsType = {
   placeholder?: string;
   label?: string;
   className?: string;
+  name?: string;
 };
 
 const Input = forwardRef(
@@ -24,7 +25,8 @@ const Input = forwardRef(
       type = "text",
       placeholder,
       label,
-      className
+      className,
+      name
     } = props;
     return (
       <span className="input_wrap">
@@ -39,6 +41,7 @@ const Input = forwardRef(
           placeholder={placeholder}
           ref={ref}
           className={className}
+          name={name}
         />
       </span>
     );

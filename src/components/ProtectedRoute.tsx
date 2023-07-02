@@ -6,13 +6,7 @@ import Modal from "@/components/Modal";
 import useModal from "@/hooks/useModal";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-export default function ProtectedRoute({
-  children,
-  requireAdmin
-}: {
-  children;
-  requireAdmin?;
-}) {
+export default function ProtectedRoute({ children }: { children }) {
   const { popupState, popupAction } = UseModalPopupContext();
   const { isLogin } = useAuthContext();
   const navigate = useNavigate();

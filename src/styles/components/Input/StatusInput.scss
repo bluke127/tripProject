@@ -10,3 +10,12 @@
   right: 5%;
   transform: translateY(-50%);
 }
+
+input:focus {
+  &.fail {
+    outline: 5px solid red;
+  }
+  &.success {
+    outline: 5px solid blue;
+  }
+}
