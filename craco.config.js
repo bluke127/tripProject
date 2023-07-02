@@ -22,13 +22,5 @@ module.exports = {
             `
       }
     }
-  },
-
-  resolve: {
-    alias: {
-      // "@/images/": `${path.resolve(__dirname, "src/app/assets/images")}/`,
-      // "@/icons/": `${path.resolve(__dirname, "src/app/assets/icons")}/`,
-      // "@": `${path.resolve(__dirname, "src")}`
-    }
   }
 };
