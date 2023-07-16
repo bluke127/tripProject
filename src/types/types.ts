@@ -2,9 +2,9 @@ import { CSSProperties } from "react";
 import { EnumType } from "typescript";
 
 //object의 key가 확실하지 않은 타입
-export type UnknownObj = {
-  [key: string]: any;
-};
+export interface UnknownObj<T = any> {
+  [key: string]: T;
+}
 //팝업이나 모달의 type
 export type ModalPopupStateType = {
   type: string;

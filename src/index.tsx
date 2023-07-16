@@ -26,6 +26,7 @@ import Popup from "@/description/Popup";
 import Table from "@/description/Table";
 import FixedComponent from "@/description/FixedComponent";
 import ProtectedRouteDes from "@/description/ProtectedRoute";
+import CustomCheckBoxArea from "@/description/CustomCheckBox/index";
 const router = createBrowserRouter([
   {
     index: true, // <-- match on parent, i.e. "/"
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "Table",
         element: <Table />
+      },
+      {
+        path: "CustomCheckBoxArea",
+        element: <CustomCheckBoxArea />
       },
       {
         path: "Protect",
